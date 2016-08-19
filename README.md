@@ -1,6 +1,6 @@
 # Docker Alpine Ruby
 
-The smallest Docker image with Alphine 3.4 and Ruby 2.3. The image size is only **22 MB**.
+The smallest Docker image with Alphine 3.4 and Ruby 2.3. The image size is only 29 MB!
 
 [Alpine Linux](http://alpinelinux.org/) is a Linux distribution built around `musl libc` and `BusyBox`.
 The image is 5 MB in size and has access to a [package repository](http://pkgs.alpinelinux.org/packages)
@@ -16,7 +16,7 @@ To build an image from the `Dockerfile` run:
     $ docker images
 
     REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE
-    docker-alpine-ruby   latest              1fa6b8033680        7 seconds ago       31.93 MB
+    docker-alpine-ruby   latest              1fa6b8033680        7 seconds ago       31.72 MB
     alpine               3.4                 4e38e38c8ce0        8 weeks ago         4.799 MB
 
 Now you can test your image by running a command:
@@ -37,7 +37,7 @@ To reduce the size of the image:
     $ make flatten
 
     REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE
-    docker-alpine-ruby   latest              aaad6c488c79        8 seconds ago       22.14 MB
+    docker-alpine-ruby   latest              aaad6c488c79        8 seconds ago       29.24 MB
     <none>               <none>              1fa6b8033680        3 minutes ago       31.93 MB
     alpine               3.4                 4e38e38c8ce0        8 weeks ago         4.799 MB
 

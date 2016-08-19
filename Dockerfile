@@ -21,7 +21,6 @@ RUN apk --no-cache add $RUBY_PACKAGES
 RUN apk --no-cache add $RUBY_DEPENDENT_PACKAGES
 
 # clear after installation
-RUN apk del ruby-dev
 RUN rm -rf /var/cache/apk/*
 
 # to avoid installing documentation for gems
