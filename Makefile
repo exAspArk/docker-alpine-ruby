@@ -10,6 +10,8 @@ create:
 connect:
 	docker run --rm -it -v $(CURDIR):$(CURRENT_DIR) $(IMAGE) /bin/sh
 run:
+	docker run --rm -it -v $(CURDIR):$(CURRENT_DIR) -w $(CURRENT_DIR) $(IMAGE)
+execute:
 	docker run --rm -it -v $(CURDIR):$(CURRENT_DIR) -w $(CURRENT_DIR) $(IMAGE) sh -c '$(COMMAND)'
 
 export:
