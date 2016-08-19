@@ -9,7 +9,7 @@ ENV RUBY_DEPENDENT_PACKAGES ''
 RUN apk update && apk upgrade
 
 # install new packages
-RUN apk add $RUBY_PACKAGES
+RUN apk --no-cache add $RUBY_PACKAGES
 
 # gem 'oj', 'puma'
 # ENV RUBY_DEPENDENT_PACKAGES="make gcc libc-dev ${RUBY_DEPENDENT_PACKAGES}"
@@ -18,9 +18,10 @@ RUN apk add $RUBY_PACKAGES
 # ENV RUBY_DEPENDENT_PACKAGES="make libxml2 libxslt-dev g++ ${RUBY_DEPENDENT_PACKAGES}"
 
 # install dependencies for gems with native extensions
-RUN apk add $RUBY_DEPENDENT_PACKAGES
+RUN apk --no-cache add $RUBY_DEPENDENT_PACKAGES
 
-# clear cache after installation
+# clear after installation
+RUN apk del ruby-dev
 RUN rm -rf /var/cache/apk/*
 
 # to avoid installing documentation for gems
