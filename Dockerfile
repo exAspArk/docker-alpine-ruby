@@ -14,6 +14,9 @@ RUN apk --no-cache add ruby ruby-dev ruby-bundler ruby-json ruby-irb ruby-rake r
 # gem 'nokogiri'
 # RUN apk --no-cache add make libxml2 libxslt-dev g++
 
+# gem 'rb-readline'
+# RUN apk --no-cache add ncurses
+
 # clear after installation
 RUN rm -rf /var/cache/apk/*
 
