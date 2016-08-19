@@ -2,23 +2,17 @@ FROM alpine:3.4
 
 MAINTAINER exAspArk <exAspArk@gmail.com>
 
-ENV RUBY_PACKAGES ruby ruby-dev ruby-bundler ruby-json ruby-irb ruby-rake ruby-bigdecimal
-ENV RUBY_DEPENDENT_PACKAGES ''
-
 # update packages
 RUN apk update && apk upgrade
 
-# install new packages
-RUN apk --no-cache add $RUBY_PACKAGES
+# install ruby packages
+RUN apk --no-cache add ruby ruby-dev ruby-bundler ruby-json ruby-irb ruby-rake ruby-bigdecimal
 
 # gem 'oj', 'puma'
-# ENV RUBY_DEPENDENT_PACKAGES="make gcc libc-dev ${RUBY_DEPENDENT_PACKAGES}"
+# RUN apk --no-cache add make gcc libc-dev
 
 # gem 'nokogiri'
-# ENV RUBY_DEPENDENT_PACKAGES="make libxml2 libxslt-dev g++ ${RUBY_DEPENDENT_PACKAGES}"
-
-# install dependencies for gems with native extensions
-RUN apk --no-cache add $RUBY_DEPENDENT_PACKAGES
+# RUN apk --no-cache add make libxml2 libxslt-dev g++
 
 # clear after installation
 RUN rm -rf /var/cache/apk/*

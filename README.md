@@ -21,16 +21,16 @@ To build an image from the `Dockerfile` run:
 
 Now you can test your image by running a command:
 
-    $ make run COMMAND='echo hello world'
+    $ make run COMMAND='ruby -v'
 
-    hello world
+    ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux-musl]
 
 Or you can connect in console:
 
     $ make connect
 
-    # echo hello world
-    hello world
+    / # ruby -v
+    ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux-musl]
 
 To reduce the size of the image:
 
@@ -58,19 +58,19 @@ Uncomment the following lines from the [Dockerfile](https://github.com/exAspArk/
 * puma
 
 ```
-ENV RUBY_DEPENDENT_PACKAGES="make gcc libc-dev ${RUBY_DEPENDENT_PACKAGES}"
+RUN apk --no-cache add make gcc libc-dev
 ```
 
 * oj
 
 ```
-ENV RUBY_DEPENDENT_PACKAGES="make gcc libc-dev ${RUBY_DEPENDENT_PACKAGES}"
+RUN apk --no-cache add make gcc libc-dev
 ```
 
 * nokogiri
 
 ```
-ENV RUBY_DEPENDENT_PACKAGES="make libxml2 libxslt-dev g++ ${RUBY_DEPENDENT_PACKAGES}"
+RUN apk --no-cache add make libxml2 libxslt-dev g++
 ```
 
 ## Useful links
