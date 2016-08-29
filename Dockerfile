@@ -27,7 +27,7 @@ RUN apk --no-cache add ruby ruby-dev ruby-bundler ruby-json ruby-irb ruby-rake r
 RUN rm -rf /var/cache/apk/*
 
 # to avoid installing documentation for gems
-COPY gemrc ~/.gemrc
+# COPY gemrc ~/.gemrc
 
 # create APP_HOME
 # ENV APP_HOME /srv/app
