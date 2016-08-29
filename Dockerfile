@@ -20,6 +20,9 @@ RUN apk --no-cache add ruby ruby-dev ruby-bundler ruby-json ruby-irb ruby-rake r
 # gem 'unf_ext'
 # RUN apk --no-cache add g++
 
+# app dependencies
+# RUN apk --no-cache add ca-certificates
+
 # clear after installation
 RUN rm -rf /var/cache/apk/*
 
