@@ -53,9 +53,9 @@ Remove containers and images:
 
 ## Native extensions
 
-Uncomment the following lines from the [Dockerfile](https://github.com/exAspArk/docker-alpine-ruby/blob/master/Dockerfile) if you use these gems with native extensions:
+Uncomment the following lines from the [Dockerfile](https://github.com/exAspArk/docker-alpine-ruby/blob/master/Dockerfile) if you use these gems with native extensions and other dependencies:
 
-* puma, oj
+* puma, oj, byebug
 
 ```
 RUN apk --no-cache add make gcc libc-dev
@@ -71,6 +71,12 @@ RUN apk --no-cache add make libxml2 libxslt-dev g++
 
 ```
 RUN apk --no-cache add ncurses
+```
+
+* unf_ext
+
+```
+RUN apk --no-cache add g++
 ```
 
 ## Useful links
