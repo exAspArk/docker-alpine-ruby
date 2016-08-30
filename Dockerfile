@@ -27,16 +27,14 @@ RUN apk --no-cache add ruby ruby-dev ruby-bundler ruby-json ruby-irb ruby-rake r
 RUN rm -rf /var/cache/apk/*
 
 # to avoid installing documentation for gems
-# COPY gemrc ~/.gemrc
+# ENV HOME /home/root
+# RUN mkdir $HOME
+# COPY gemrc $HOME/.gemrc
+
+# use mounted volume for gems
+# ENV BUNDLE_PATH /bundle
 
 # create APP_HOME
 # ENV APP_HOME /srv/app
 # RUN mkdir $APP_HOME
 # WORKDIR $APP_HOME
-
-# bundle install
-# COPY Gemfile* $APP_HOME/
-# RUN bundle install
-
-# copy project
-# COPY . $APP_HOME
