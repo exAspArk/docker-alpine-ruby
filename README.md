@@ -79,6 +79,12 @@ RUN apk --no-cache add ncurses
 RUN apk --no-cache add g++
 ```
 
+* ffi
+
+```
+RUN apk --no-cache add libffi-dev
+```
+
 ## Useful links
 
 * [Reduce docker image size](http://dev.im-bot.com/docker-reduce-image-size/).

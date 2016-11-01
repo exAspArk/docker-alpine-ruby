@@ -20,6 +20,9 @@ RUN apk --no-cache add ruby ruby-dev ruby-bundler ruby-json ruby-irb ruby-rake r
 # gem 'unf_ext'
 # RUN apk --no-cache add g++
 
+# gem 'ffi'
+# RUN apk --no-cache add libffi-dev
+
 # app dependencies
 # RUN apk --no-cache add ca-certificates
 
