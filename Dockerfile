@@ -38,10 +38,10 @@ RUN \
   rm -rf /var/cache/apk/*
 
 # to avoid installing documentation for gems
-# COPY gemrc $HOME/.gemrc
+COPY gemrc $HOME/.gemrc
 
 # use mounted volume for gems
-# ENV BUNDLE_PATH /bundle
+ENV BUNDLE_PATH /bundle
 
 # create WORKDIR
 ENV WORKDIR /srv/current

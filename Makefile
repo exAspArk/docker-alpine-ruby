@@ -24,9 +24,11 @@ import:
 flatten:
 	make create && make export && make import
 
-remove_containers:
+remove_all_containers:
 	docker rm $$(docker ps -aq)
-remove_images:
+remove_all_images:
 	docker rmi $$(docker images -aq)
+remove_exited_containers:
+	docker rm -v $$(docker ps -q -f status=exited)
 remove_dangling_images:
-	docker rmi $$(docker images -a | grep "^<none>" | awk '{print $$3}')
+	docker rmi $$(docker images -q -f dangling=true)

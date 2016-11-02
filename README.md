@@ -48,8 +48,8 @@ Remove containers and images:
     CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
     c20ce0f07d47        1fa6b8033680        "/bin/sh"           2 minutes ago       Created                                 docker-alpine-ruby
 
-    $ make remove_containers
-    $ make remove_images
+    $ make remove_all_containers
+    $ make remove_all_images
 
 ## Native extensions
 
