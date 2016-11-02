@@ -27,7 +27,7 @@ Now you can test your image by running a command:
 
 Or you can connect in console:
 
-    $ make connect
+    $ make sh
 
     / # ruby -v
     ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-linux-musl]

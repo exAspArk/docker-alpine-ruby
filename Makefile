@@ -1,18 +1,20 @@
 IMAGE := docker-alpine-ruby:latest
 CONTAINER := docker-alpine-ruby
-CURRENT_DIR := /srv/current
+WORKDIR := /srv/current
 
 build:
-	docker build . -t $(IMAGE) || make connect IMAGE=$$(docker images -aq | head -1)
+	docker build . -t $(IMAGE) || make sh IMAGE=$$(docker images -aq | head -1)
 create:
 	docker rm $(CONTAINER) ; docker create --name $(CONTAINER) $(IMAGE) /bin/sh
 
-connect:
-	docker run --rm -it -v $(CURDIR):$(CURRENT_DIR) $(IMAGE) /bin/sh
+sh:
+	docker run --rm -it -v $(CURDIR):$(WORKDIR) $(IMAGE) /bin/sh
+attach:
+	docker exec -it $$(docker ps | grep $(IAMGE) | head -1 | awk '{print $$1}') /bin/sh
 run:
-	docker run --rm -it -v $(CURDIR):$(CURRENT_DIR) -w $(CURRENT_DIR) $(IMAGE)
+	docker run --rm -it -v $(CURDIR):$(WORKDIR) -w $(WORKDIR) $(IMAGE)
 execute:
-	docker run --rm -it -v $(CURDIR):$(CURRENT_DIR) -w $(CURRENT_DIR) $(IMAGE) sh -c '$(COMMAND)'
+	docker run --rm -it -v $(CURDIR):$(WORKDIR) -w $(WORKDIR) $(IMAGE) sh -c '$(COMMAND)'
 
 export:
 	docker export $(CONTAINER) > $(CONTAINER).tar
