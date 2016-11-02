@@ -73,10 +73,10 @@ RUN apk --no-cache add make libxml2 libxslt-dev g++
 RUN apk --no-cache add ncurses
 ```
 
-* unf_ext
+* mysql2
 
 ```
-RUN apk --no-cache add g++
+RUN apk --no-cache add mysql-dev
 ```
 
 * ffi
@@ -84,6 +84,8 @@ RUN apk --no-cache add g++
 ```
 RUN apk --no-cache add libffi-dev
 ```
+
+* etc.
 
 ## Useful links
 
