@@ -38,8 +38,6 @@ RUN \
   rm -rf /var/cache/apk/*
 
 # to avoid installing documentation for gems
-# ENV HOME /home/root
-# RUN mkdir $HOME
 # COPY gemrc $HOME/.gemrc
 
 # use mounted volume for gems
